@@ -30,6 +30,8 @@ podTemplate(
       name: 'jnlp',
       image: 'cloutainer/k8s-jenkins-slave-nodejs-xvfb-chrome:v17',
       privileged: false,
+      command: '/opt/docker-entrypoint.sh',
+      args: '',
       alwaysPullImage: false,
       workingDir: '/home/jenkins',
       resourceRequestCpu: '500m',
