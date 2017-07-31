@@ -44,13 +44,13 @@ export CHROME_BIN="/usr/bin/google-chrome"
 echo "DOCKER-ENTRYPOINT >> downloading jenkins-slave.jar from Jenkins"
 curl -sSLo /home/jenkins/.bin/jenkins-slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
 
-if [ "$INSPECT" == "false" ]
-then
+#if [ "$INSPECT" == "false" ]
+#then
   echo "DOCKER-ENTRYPOINT >> establishing JNLP connection with Jenkins"
   exec java $JAVA_OPTS -cp /home/jenkins/.bin/jenkins-slave.jar \
             hudson.remoting.jnlp.Main -headless \
             $JENKINS_JNLP_URL $JENKINS_SECRET $JENKINS_NAME
-else
-  echo "DOCKER-ENTRYPOINT >> starting in INSPECT mode and passing through CMD"
-  exec "$@"
-fi
+#else
+#  echo "DOCKER-ENTRYPOINT >> starting in INSPECT mode and passing through CMD"
+#  exec "$@"
+#fi
