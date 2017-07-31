@@ -8,6 +8,8 @@ A Jenkins Slave Dockerized Container is started with the following parameters:
 
  * Docker CMD parameters:
    * `secret` and `nodeName`
+     * We will use `JENKINS_NAME` Env var instead of `nodeName`
+     * We will use `JENKINS_SECRET` Env var instead of `secret`
  * Docker ENV Vars:
 
 ```
