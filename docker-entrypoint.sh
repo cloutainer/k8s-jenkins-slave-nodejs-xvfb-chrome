@@ -61,8 +61,8 @@ curl -I ${JENKINS_URL}/jnlpJars/slave.jar
 
 curl -sSLo /tmp/jenkins-slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
 
-echo "DOCKER-ENTRYPOINT >> checking integrity of slave.jar"
-jar -tvf /tmp/jenkins-slave.jar
+###echo "DOCKER-ENTRYPOINT >> checking integrity of slave.jar"
+###jar -tvf /tmp/jenkins-slave.jar
 
 echo "DOCKER-ENTRYPOINT >> establishing JNLP connection with Jenkins"
 exec java $JAVA_OPTS -cp /tmp/jenkins-slave.jar \
