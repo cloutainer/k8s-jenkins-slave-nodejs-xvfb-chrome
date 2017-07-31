@@ -56,8 +56,13 @@ echo "DOCKER-ENTRYPOINT >> config: JENKINS_URL:      $JENKINS_URL"
 echo "DOCKER-ENTRYPOINT >> config: JENKINS_JNLP_URL: $JENKINS_JNLP_URL"
 
 echo "DOCKER-ENTRYPOINT >> downloading jenkins-slave.jar from Jenkins"
+echo "DOCKER-ENTRYPOINT >> ${JENKINS_URL}/jnlpJars/slave.jar"
+curl -I ${JENKINS_URL}/jnlpJars/slave.jar
+
 curl -sSLo /home/jenkins/.bin/jenkins-slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
 
+echo "DOCKER-ENTRYPOINT >> checking integrity of slave.jar"
+jar -tvf /home/jenkins/.bin/jenkins-slave.jar
 
 echo "DOCKER-ENTRYPOINT >> establishing JNLP connection with Jenkins"
 exec java $JAVA_OPTS -cp /home/jenkins/.bin/jenkins-slave.jar \
