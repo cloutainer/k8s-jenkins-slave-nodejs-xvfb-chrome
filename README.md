@@ -28,7 +28,7 @@ The outline of the process is as follows:
  * container creation with `secret` and `nodeName`
  * inside docker-entrypoint:
    * Download of `${JENKINS_URL}/jnlpJars/slave.jar`.
-   * Executing `java -jar slave.jar ${secret} ${nodeName}`.
+   * Executing `java -jar slave.jar -url ${JENKINS_URL} ${secret} ${nodeName}`.
 
 
 -----
