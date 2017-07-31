@@ -14,6 +14,12 @@ set -e
 umask u+rxw,g+rwx,o-rwx
 
 #
+# USER
+#
+echo "DOCKER-ENTRYPOINT >> running as user"
+whoami
+
+#
 # XVFB
 #
 echo "DOCKER-ENTRYPOINT >> starting Xvfb"
