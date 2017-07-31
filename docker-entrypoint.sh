@@ -59,13 +59,13 @@ echo "DOCKER-ENTRYPOINT >> downloading jenkins-slave.jar from Jenkins"
 echo "DOCKER-ENTRYPOINT >> ${JENKINS_URL}/jnlpJars/slave.jar"
 curl -I ${JENKINS_URL}/jnlpJars/slave.jar
 
-curl -sSLo /home/jenkins/.bin/jenkins-slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
+curl -sSLo /tmp/jenkins-slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
 
 echo "DOCKER-ENTRYPOINT >> checking integrity of slave.jar"
-jar -tvf /home/jenkins/.bin/jenkins-slave.jar
+jar -tvf /tmp/jenkins-slave.jar
 
 echo "DOCKER-ENTRYPOINT >> establishing JNLP connection with Jenkins"
-exec java $JAVA_OPTS -cp /home/jenkins/.bin/jenkins-slave.jar \
+exec java $JAVA_OPTS -cp /tmp/jenkins-slave.jar \
             hudson.remoting.jnlp.Main -headless \
             $JENKINS_JNLP_URL $JENKINS_SECRET $JENKINS_NAME
 
