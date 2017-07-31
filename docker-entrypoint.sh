@@ -55,11 +55,17 @@ echo "DOCKER-ENTRYPOINT >> config: JENKINS_SECRET:   $JENKINS_SECRET"
 echo "DOCKER-ENTRYPOINT >> config: JENKINS_URL:      $JENKINS_URL"
 echo "DOCKER-ENTRYPOINT >> config: JENKINS_JNLP_URL: $JENKINS_JNLP_URL"
 
-echo "DOCKER-ENTRYPOINT >> downloading jenkins-slave.jar from Jenkins"
-echo "DOCKER-ENTRYPOINT >> ${JENKINS_URL}/jnlpJars/slave.jar"
-curl -I ${JENKINS_URL}/jnlpJars/slave.jar
+### FIXME: Since older Jenkins slave.jar versions have "-url" and newer ones have "-jnlpUrl"
+###        We will download V3 releases from GitHub instead!
+###        Since slave.jar has no version parameter to check the version we cannot handle the versions differently :(
 
-curl -sSLo /tmp/jenkins-slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
+#echo "DOCKER-ENTRYPOINT >> downloading jenkins-slave.jar from Jenkins"
+#echo "DOCKER-ENTRYPOINT >> ${JENKINS_URL}/jnlpJars/slave.jar"
+#curl -I ${JENKINS_URL}/jnlpJars/slave.jar
+
+#curl -sSLo /tmp/jenkins-slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
+#remoting-3.10 is bundled with jenkins 2.71
+curl -sSLo /tmp/jenkins-slave.jar  https://repo.jenkins-ci.org/releases/org/jenkins-ci/main/remoting/3.10/remoting-3.10.jar
 
 ###echo "DOCKER-ENTRYPOINT >> checking integrity of slave.jar"
 ###jar -tvf /tmp/jenkins-slave.jar
