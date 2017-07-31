@@ -17,7 +17,7 @@ Kubernetes Docker image providing Jenkins Slave JNLP and Node.JS.
 
 ### Usage
 
-Use with Kubernetes Jenkins Plugin like so:
+Use with [Kubernetes Jenkins Plugin](https://github.com/jenkinsci/kubernetes-plugin) like so:
 
 ```groovy
 podTemplate(
