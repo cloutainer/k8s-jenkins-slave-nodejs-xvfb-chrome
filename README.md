@@ -2,6 +2,15 @@
 
 # k8s-jenkins-slave-nodejs-xvfb-chrome
 
+Kubernetes Docker image providing Jenkins Slave JNLP and Node.JS.
+
+
+-----
+&nbsp;
+
+### Preinstalled Tools
+
+ * yarn, nodejs, npm, cloudfoundry-cli, git, curl, wget, Xvfb, chrome
 
 -----
 &nbsp;
