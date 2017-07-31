@@ -70,8 +70,11 @@ curl -sSLo /tmp/jenkins-slave.jar  https://repo.jenkins-ci.org/releases/org/jenk
 ###echo "DOCKER-ENTRYPOINT >> checking integrity of slave.jar"
 ###jar -tvf /tmp/jenkins-slave.jar
 
-echo "DOCKER-ENTRYPOINT >> establishing JNLP connection with Jenkins"
-exec java $JAVA_OPTS -cp /tmp/jenkins-slave.jar \
-            hudson.remoting.jnlp.Main -headless \
-            -jnlpUrl $JENKINS_JNLP_URL $JENKINS_SECRET $JENKINS_NAME
+echo "DOCKER-ENTRYPOINT >> establishing JNLP connection with Jenkins via JNLP URL"
+echo "DOCKER-ENTRYPOINT >> java -jar /tmp/jenkins-slave.jar -jnlpUrl $JENKINS_JNLP_URL"
 
+#exec java $JAVA_OPTS -cp /tmp/jenkins-slave.jar \
+#            hudson.remoting.jnlp.Main -headless \
+#            -jnlpUrl $JENKINS_JNLP_URL $JENKINS_SECRET $JENKINS_NAME
+
+exec java -jar /tmp/jenkins-slave.jar -jnlpUrl $JENKINS_JNLP_URL
