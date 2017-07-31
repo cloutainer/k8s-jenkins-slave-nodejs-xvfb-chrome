@@ -67,5 +67,5 @@ curl -sSLo /tmp/jenkins-slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
 echo "DOCKER-ENTRYPOINT >> establishing JNLP connection with Jenkins"
 exec java $JAVA_OPTS -cp /tmp/jenkins-slave.jar \
             hudson.remoting.jnlp.Main -headless \
-            $JENKINS_JNLP_URL $JENKINS_SECRET $JENKINS_NAME
+            -url $JENKINS_JNLP_URL $JENKINS_SECRET $JENKINS_NAME
 
