@@ -9,13 +9,12 @@ A Jenkins Slave Dockerized Container is started with the following CMD parameter
  * `secret` and `nodeName`
 
 The `secret` and `nodeName` is the passed to the JNLP remoting JAR `slave.jar` to connect to the Jenkins Host via JNLP protocol.
-
 The outline of the process is as follows:
 
  * container creation with `secret` and `nodeName`
  * inside docker-entrypoint:
-   * Download of `${JENKINS_URL}/jnlpJars/slave.jar`
-   * Executing `java -jar slave.jar ${secret} ${nodeName}`
+   * Download of `${JENKINS_URL}/jnlpJars/slave.jar`.
+   * Executing `java -jar slave.jar ${secret} ${nodeName}`.
 
 
 -----
