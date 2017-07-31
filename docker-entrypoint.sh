@@ -71,10 +71,10 @@ curl -sSLo /tmp/jenkins-slave.jar  https://repo.jenkins-ci.org/releases/org/jenk
 ###jar -tvf /tmp/jenkins-slave.jar
 
 echo "DOCKER-ENTRYPOINT >> establishing JNLP connection with Jenkins via JNLP URL"
-echo "DOCKER-ENTRYPOINT >> java -jar /tmp/jenkins-slave.jar -jnlpUrl $JENKINS_JNLP_URL"
 
-#exec java $JAVA_OPTS -cp /tmp/jenkins-slave.jar \
-#            hudson.remoting.jnlp.Main -headless \
-#            -jnlpUrl $JENKINS_JNLP_URL $JENKINS_SECRET $JENKINS_NAME
+exec java $JAVA_OPTS -cp /tmp/jenkins-slave.jar \
+            hudson.remoting.jnlp.Main -headless \
+            -url $JENKINS_URL $JENKINS_SECRET $JENKINS_NAME
 
-exec java -jar /tmp/jenkins-slave.jar -jnlpUrl $JENKINS_JNLP_URL
+
+### Produces 403 Forbidden => exec java -jar /tmp/jenkins-slave.jar -jnlpUrl $JENKINS_JNLP_URL
