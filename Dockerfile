@@ -7,7 +7,13 @@ ENV HOME /home/jenkins
 RUN groupadd -g 10000 jenkins && \
     useradd -c "Jenkins user" -d $HOME -u 10000 -g 10000 -m jenkins && \
     mkdir /home/jenkins/.jenkins/ && mkdir /home/jenkins/.bin/ && \
-    chown -R jenkins:jenkins /home/jenkins/
+    chown -R jenkins:jenkins /home/jenkins/ && \
+    chown jenkins:jenkins /home/jenkins/.bin && \
+    chown jenkins:jenkins /home/jenkins/.jenkins && \
+    chmod 750 /home/jenkins/ && \
+    chmod 750 /home/jenkins/.bin  && \
+    chmod 750 /home/jenkins/.jenkins
+    
 
 
 #
@@ -83,8 +89,7 @@ COPY docker-entrypoint.sh /opt/docker-entrypoint.sh
 RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint.sh && \
     mkdir /tmp/.X11-unix && \
     chown -R root:root /tmp/.X11-unix && \
-    chmod 1777 /tmp/.X11-unix && \
-    chown -R jenkins:jenkins /home/jenkins/
+    chmod 1777 /tmp/.X11-unix
 
 #
 # RUN
