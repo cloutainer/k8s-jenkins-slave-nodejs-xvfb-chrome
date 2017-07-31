@@ -1,12 +1,12 @@
 #!/bin/bash
 
-set -ve
+set -e
 
 #
 # DISPLAY DOCKER CMD CALL
 #
-myInvocation="$(printf %q "$BASH_SOURCE")$((($#)) && printf ' %q' "$@")"
-echo $myInvocation
+#myInvocation="$(printf %q "$BASH_SOURCE")$((($#)) && printf ' %q' "$@")"
+#echo $myInvocation
 
 #
 # UMASK
@@ -28,7 +28,7 @@ eval `dbus-launch --sh-syntax --config-file=/tmp/dbus-system.conf`
 #
 # PULSEAUDIO
 #
-# pulseaudio --daemonize
+pulseaudio --daemonize
 
 #
 # CHROME
