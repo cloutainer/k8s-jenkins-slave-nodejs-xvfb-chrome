@@ -12,11 +12,12 @@ A Jenkins Slave Dockerized Container is started with the following parameters:
 
 ```
 JENKINS_LOCATION_URL: https://jenkins.foo.com/
-JENKINS_SECRET: 050...42d
-JENKINS_JNLP_URL: http://jenkins.foo.com:8080/computer/k8s-jenkins-slave-nodejs-xvfb-chrome-21ce6ca6fe87e/slave-agent.jnlp
-JENKINS_NAME: k8s-jenkins-slave-nodejs-xvfb-chrome-21ce6ca6fe87e
-JENKINS_URL: http://jenkins.foo.com:8080
-HOME: /work
+JENKINS_SECRET:       050...42d
+JENKINS_JNLP_URL:     http://jenkins.foo.com:8080/computer/k8s-jenkins-slave-
+                      nodejs-xvfb-chrome-21ce6ca6fe87e/slave-agent.jnlp
+JENKINS_NAME:         k8s-jenkins-slave-nodejs-xvfb-chrome-21ce6ca6fe87e
+JENKINS_URL:          http://jenkins.foo.com:8080
+HOME:                 /work
 ```
 
 The `secret` and `nodeName` is the passed to the JNLP remoting JAR `slave.jar` to connect to the Jenkins Host via JNLP protocol.
