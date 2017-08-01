@@ -2,7 +2,9 @@
 
 # k8s-jenkins-slave-nodejs-xvfb-chrome
 
-Kubernetes Docker image providing Jenkins Slave JNLP and Node.JS.
+[![](https://codeclou.github.io/doc/badges/generated/docker-image-size-403.svg)](https://hub.docker.com/r/cloutainer/k8s-jenkins-slave-nodejs-xvfb-chrome/tags/) [![](https://codeclou.github.io/doc/badges/generated/docker-from-ubuntu-16.04.svg)](https://www.ubuntu.com/) [![](https://codeclou.github.io/doc/badges/generated/docker-run-as-non-root.svg)](https://docs.docker.com/engine/reference/builder/#/user)
+
+Kubernetes Docker image providing Jenkins Slave JNLP with Node.JS, xvfb and Google Chrome.
 
 
 -----
@@ -10,7 +12,18 @@ Kubernetes Docker image providing Jenkins Slave JNLP and Node.JS.
 
 ### Preinstalled Tools
 
- * yarn, nodejs, npm, cloudfoundry-cli, git, curl, wget, Xvfb, chrome
+| tool | version |
+|------|---------|
+| yarn | 0.27.5 |
+| node.js | 8.1.3 |
+| npm | 5.0.3 |
+| google-chrome-stable | 59 |
+| cloudfoundry cli | apt-get |
+| Xvfb | apt-get |
+| git | apt-get |
+| curl, wget | apt-get |
+| zip, bzip2 | apt-get |
+| jq | apt-get |
 
 -----
 &nbsp;
