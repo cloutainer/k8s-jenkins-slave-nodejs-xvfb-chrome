@@ -1,4 +1,4 @@
-FROM cloutainer/k8s-jenkins-slave-base:v8
+FROM cloutainer/k8s-jenkins-slave-base:v9
 
 #
 # BASE PACKAGES
