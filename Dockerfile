@@ -8,6 +8,7 @@ RUN apt-get -qqy update \
     xvfb \
     pulseaudio \
     dbus \
+    phantomjs \
     dbus-x11 && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 

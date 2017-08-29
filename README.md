@@ -18,6 +18,7 @@ Kubernetes Docker image providing Jenkins Slave JNLP with Node.JS, xvfb and Goog
 | node.js | 8.1.3 |
 | npm | 5.0.3 |
 | google-chrome-stable | 59 |
+| phantomjs | apt-get |
 | cloudfoundry cli | apt-get |
 | Xvfb | apt-get |
 | git | apt-get |
