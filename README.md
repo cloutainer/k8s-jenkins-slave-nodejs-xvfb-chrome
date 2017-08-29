@@ -35,14 +35,14 @@ Use with [Kubernetes Jenkins Plugin](https://github.com/jenkinsci/kubernetes-plu
 
 ```groovy
 podTemplate(
-  name: 'nodejs-xvfb-chrome-v17',
-  label: 'k8s-jenkins-slave-nodejs-xvfb-chrome-v17',
+  name: 'nodejs-xvfb-chrome-v25',
+  label: 'k8s-jenkins-slave-nodejs-xvfb-chrome-v25',
   cloud: 'mycloud',
   nodeSelector: 'failure-domain.beta.kubernetes.io/zone=eu-west-1a',
   containers: [
     containerTemplate(
       name: 'jnlp',
-      image: 'cloutainer/k8s-jenkins-slave-nodejs-xvfb-chrome:v17',
+      image: 'cloutainer/k8s-jenkins-slave-nodejs-xvfb-chrome:v25',
       privileged: false,
       command: '/opt/docker-entrypoint.sh',
       args: '',
@@ -55,7 +55,7 @@ podTemplate(
     )
   ]
 ) {
-  node('k8s-jenkins-slave-nodejs-xvfb-chrome-v17') {
+  node('k8s-jenkins-slave-nodejs-xvfb-chrome-v25') {
     stage('build and test') {
       sh 'yarn -version'
       sh 'git clone https://github.com/clouless/angular-4-unit-test-dummy.git code'
