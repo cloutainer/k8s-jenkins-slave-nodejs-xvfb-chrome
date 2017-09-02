@@ -57,10 +57,12 @@ podTemplate(
 ) {
   node('k8s-jenkins-slave-nodejs-xvfb-chrome-v25') {
     stage('build and test') {
-      sh 'yarn -version'
-      sh 'git clone https://github.com/clouless/angular-4-unit-test-dummy.git code'
-      dir('code') {
-        sh 'yarn && yarn test'
+      sh 'mvn -version'
+      sh 'git clone https://github.com/spring-projects/spring-boot.git'
+      dir('spring-boot-samples') {
+        dir('spring-boot-sample-war') {
+          sh 'mvn compile'
+        }
       }
     }
   }
