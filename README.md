@@ -19,7 +19,6 @@ Kubernetes Docker image providing Jenkins Slave JNLP with Node.JS, xvfb and Goog
 | npm | 5.0.3 |
 | google-chrome-stable | 59 |
 | phantomjs | apt-get |
-| cloudfoundry cli | apt-get |
 | Xvfb | apt-get |
 | git | apt-get |
 | curl, wget | apt-get |
@@ -35,14 +34,14 @@ Use with [Kubernetes Jenkins Plugin](https://github.com/jenkinsci/kubernetes-plu
 
 ```groovy
 podTemplate(
-  name: 'nodejs-xvfb-chrome-v25',
-  label: 'k8s-jenkins-slave-nodejs-xvfb-chrome-v25',
+  name: 'nodejs-xvfb-chrome-v27',
+  label: 'k8s-jenkins-slave-nodejs-xvfb-chrome-v27',
   cloud: 'mycloud',
   nodeSelector: 'failure-domain.beta.kubernetes.io/zone=eu-west-1a',
   containers: [
     containerTemplate(
       name: 'jnlp',
-      image: 'cloutainer/k8s-jenkins-slave-nodejs-xvfb-chrome:v25',
+      image: 'cloutainer/k8s-jenkins-slave-nodejs-xvfb-chrome:v27',
       privileged: false,
       command: '/opt/docker-entrypoint.sh',
       args: '',
@@ -55,7 +54,7 @@ podTemplate(
     )
   ]
 ) {
-  node('k8s-jenkins-slave-nodejs-xvfb-chrome-v25') {
+  node('k8s-jenkins-slave-nodejs-xvfb-chrome-v27') {
     stage('build and test') {
       sh 'mvn -version'
       sh 'git clone https://github.com/spring-projects/spring-boot.git'
