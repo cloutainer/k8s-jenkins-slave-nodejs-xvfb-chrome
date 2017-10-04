@@ -7,6 +7,8 @@ RUN apt-get -qqy update \
     && apt-get -qqy --no-install-recommends install \
     xvfb \
     pulseaudio \
+    g++ \
+    build-essential \
     dbus \
     phantomjs \
     dbus-x11 && \
