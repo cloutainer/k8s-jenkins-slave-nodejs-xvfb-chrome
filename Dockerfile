@@ -17,7 +17,7 @@ RUN apt-get -qqy update \
 #
 # NODEJS
 #
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get update -qqy && apt-get -qqy install -y nodejs && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
@@ -55,7 +55,7 @@ RUN mkdir /var/run/dbus/ && \
 #
 COPY docker-entrypoint-hook.sh /opt/docker-entrypoint-hook.sh
 RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint-hook.sh && \
-    mkdir /tmp/.X11-unix && \
+    mkdir /tmp/.X11-unix | true && \
     chown -R root:root /tmp/.X11-unix && \
     chmod 1777 /tmp/.X11-unix
 
