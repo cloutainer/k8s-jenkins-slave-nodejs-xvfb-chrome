@@ -3,16 +3,16 @@ FROM cloutainer/k8s-jenkins-slave-base:v21
 #
 # BASE PACKAGES
 #
-RUN apt-get -qqy update \
+RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
+    apt-get -qqy update \
     && apt-get -qqy --no-install-recommends install \
     xvfb \
     pulseaudio \
+    ffmpeg \
     g++ \
     build-essential \
     dbus \
-    phantomjs \
-    dbus-x11 && \
-    rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+    dbus-x11
 
 #
 # NODEJS

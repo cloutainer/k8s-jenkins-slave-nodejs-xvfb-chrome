@@ -14,10 +14,10 @@ Kubernetes Docker image providing Jenkins Slave JNLP with Node.JS, xvfb and Goog
 
 | tool | version |
 |------|---------|
-| yarn | 1.13.0 |
-| node.js | 10.15.0 |
+| yarn | 1.15.2 |
+| node.js | 10.15.3 |
 | npm | 6.4.1 |
-| google-chrome-stable | 71 |
+| google-chrome-stable | 73.0.3683.86 |
 | phantomjs | apt-get |
 | Xvfb | apt-get |
 | git | apt-get |
@@ -34,14 +34,14 @@ Use with [Kubernetes Jenkins Plugin](https://github.com/jenkinsci/kubernetes-plu
 
 ```groovy
 podTemplate(
-  name: 'nodejs-xvfb-chrome-v29',
-  label: 'k8s-jenkins-slave-nodejs-xvfb-chrome-v29',
+  name: 'nodejs-xvfb-chrome-v31',
+  label: 'k8s-jenkins-slave-nodejs-xvfb-chrome-v31',
   cloud: 'mycloud',
   nodeSelector: 'failure-domain.beta.kubernetes.io/zone=eu-west-1a',
   containers: [
     containerTemplate(
       name: 'jnlp',
-      image: 'cloutainer/k8s-jenkins-slave-nodejs-xvfb-chrome:v29',
+      image: 'cloutainer/k8s-jenkins-slave-nodejs-xvfb-chrome:v31',
       privileged: false,
       command: '/opt/docker-entrypoint.sh',
       args: '',
@@ -54,7 +54,7 @@ podTemplate(
     )
   ]
 ) {
-  node('k8s-jenkins-slave-nodejs-xvfb-chrome-v29') {
+  node('k8s-jenkins-slave-nodejs-xvfb-chrome-v31') {
     stage('build and test') {
       sh 'mvn -version'
       sh 'git clone https://github.com/clouless/angular-4-unit-test-dummy.git'
