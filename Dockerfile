@@ -1,4 +1,4 @@
-FROM cloutainer/k8s-jenkins-slave-base:v21
+FROM cloutainer/k8s-jenkins-slave-base:v22
 
 #
 # BASE PACKAGES
@@ -21,6 +21,13 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get update -qqy && apt-get -qqy install -y nodejs && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
+#
+# KUBERNETES CLI (kubectl)
+#
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
+    chmod +x ./kubectl && \
+    mv ./kubectl /usr/local/bin/kubectl
+    
 #
 # CHROME
 #
