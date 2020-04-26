@@ -17,7 +17,7 @@ RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
 #
 # NODEJS
 #
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
     apt-get update -qqy && apt-get -qqy install -y nodejs && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
@@ -27,7 +27,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
-    
+
 #
 # CHROME
 #
@@ -65,6 +65,14 @@ RUN chmod u+rx,g+rx,o+rx,a-w /opt/docker-entrypoint-hook.sh && \
     mkdir /tmp/.X11-unix | true && \
     chown -R root:root /tmp/.X11-unix && \
     chmod 1777 /tmp/.X11-unix
+
+#
+# PRINT VERSION OUTPUT
+#
+RUN echo "node version" && node -v && \
+    echo "npm version" && npm -v && \
+    echo "yarn version" && yarn -v && \
+    echo "chrome version" && google-chrome --version
 
 #
 # RUN

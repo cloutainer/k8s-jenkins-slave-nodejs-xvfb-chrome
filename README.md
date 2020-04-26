@@ -14,10 +14,10 @@ Kubernetes Docker image providing Jenkins Slave JNLP with Node.JS, xvfb and Goog
 
 | tool | version |
 |------|---------|
-| yarn                 | 1.19.1 |
-| node.js              | 10.16.3 |
-| npm                  | 6.9.0 |
-| google-chrome-stable | 77.0.3865.120 |
+| yarn                 | 1.22.4 |
+| node.js              | 12.16.2 |
+| npm                  | 6.14.4 |
+| google-chrome-stable | 81.0.4044.122 |
 | kubernetes cli	     | apt-get |
 | Xvfb                 | apt-get |
 | git                  | apt-get |
