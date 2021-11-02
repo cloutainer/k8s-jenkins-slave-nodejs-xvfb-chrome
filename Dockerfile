@@ -17,7 +17,7 @@ RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/* && \
 #
 # NODEJS
 #
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get update -qqy && apt-get -qqy install -y nodejs && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
